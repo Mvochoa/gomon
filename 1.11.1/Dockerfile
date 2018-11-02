@@ -5,3 +5,5 @@ RUN go install /go/src/github.com/githubnemo/CompileDaemon
 RUN chmod +x /go/bin/CompileDaemon
 RUN mv /go/bin/CompileDaemon /usr/local/bin/gomon
 RUN rm -Rf github.com golang.org
+
+ENV GO111MODULE=on

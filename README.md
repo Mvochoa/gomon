@@ -1,4 +1,4 @@
-# gomon
+# Gomon
 Imagenes de docker con Gomon y Golang
 
 ## Supported tags and respective Dockerfile links
