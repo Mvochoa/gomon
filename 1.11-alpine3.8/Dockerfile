@@ -8,3 +8,6 @@ RUN mv /go/bin/CompileDaemon /usr/local/bin/gomon
 RUN rm -Rf github.com golang.org
 
 ENV GO111MODULE=on
+
+COPY docker-entrypoint.sh /usr/local/bin/
+ENTRYPOINT ["sh", "/usr/local/bin/docker-entrypoint.sh"]

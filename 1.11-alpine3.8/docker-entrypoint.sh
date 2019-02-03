@@ -1,0 +1,18 @@
+#!/bin/sh
+
+set -e
+
+DIRECTORY=/etc/ssl/ca-certificates
+
+if [ ! -d "$DIRECTORY" ]; then
+    mkdir $DIRECTORY
+    cp -R /usr/local/share/ca-certificates/* $DIRECTORY/
+
+    for ext in crt cer pem; do
+        if [ -f $DIRECTORY/*.$ext ]; then
+            cat $DIRECTORY/*.$ext >> /etc/ssl/certs/ca-certificates.crt
+        fi
+    done
+fi
+
+exec "$@"
