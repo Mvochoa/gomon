@@ -4,6 +4,7 @@ set -e
 
 DIRECTORY=/etc/ssl/ca-certificates
 
+
 if [ ! -d "$DIRECTORY" ]; then
     mkdir $DIRECTORY
     if [ ! -d "/usr/local/share/ca-certificates" ]; then
@@ -16,5 +17,9 @@ if [ ! -d "$DIRECTORY" ]; then
         done
     fi
 fi
+
+gomon -build="true" \
+      -command="genstruct \$FILE" \
+      -pattern="(.+\.graphql)$" &
 
 exec "$@"
